@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "E:/С/VS_project/time_homework/time_project/out/build/x64-debug/time_project/CMakeFiles/time_project.dir/embed.manifest"

@@ -1,0 +1,5 @@
+E:/С/VS_project/time_homework/time_project/out/build/x64-debug/CMakeFiles/edit_cache.dir
+E:/С/VS_project/time_homework/time_project/out/build/x64-debug/CMakeFiles/rebuild_cache.dir
+E:/С/VS_project/time_homework/time_project/out/build/x64-debug/time_project/CMakeFiles/time_project.dir
+E:/С/VS_project/time_homework/time_project/out/build/x64-debug/time_project/CMakeFiles/edit_cache.dir
+E:/С/VS_project/time_homework/time_project/out/build/x64-debug/time_project/CMakeFiles/rebuild_cache.dir
