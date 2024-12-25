@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 using namespace std;
 
@@ -84,13 +84,39 @@ public:
         cout << "HH:MM:SS\n" << hours << ":" << minutes << ":" << seconds << endl;
     }
 
+    Time& operator += (int s) {
+        seconds += s;
+        Normalize();
+        return *this;
+    }
+
+    Time& operator -= (int s) {
+        seconds -= s;
+        Normalize();
+        return *this;
+    }
+
+
     void SetHours(int hours) { this->hours = hours; }
     void SetMinutes(int minutes) { this->minutes = minutes; }
     void SetSeconds(int seconds) { this->seconds = seconds; }
     int GetHours() const { return hours; }
     int GetMinutes() const { return minutes; }
     int GetSeconds() const { return seconds; }
+
+    bool operator == (const Time& other) const {
+        return hours == other.hours && minutes == other.minutes && seconds == other.seconds;
+    }
 };
+
+Time operator + (const Time& t, int s) {
+    return Time(t.GetHours(), t.GetMinutes(), t.GetSeconds() + s);
+}
+
+Time operator - (const Time& t, int s) {
+    return Time(t.GetHours(), t.GetMinutes(), t.GetSeconds() - s);
+}
+
 
 // Определение статической переменной
 int Time::objectCount = 0;
@@ -110,6 +136,38 @@ int main() {
     }  // t3 уничтожается здесь
 
     cout << "Object count after destroying t3: " << Time::GetObjectCount() << endl;
+
+    Time t4 = t2 - 50;
+    t4.InternalPrint();
+
+    Time t5 = t2;
+    t5 -= 50;
+    t5.InternalPrint();
+
+    Time t6(10, 20, 30);
+    if (t2 == t6) {
+        cout << "t2 and t6 are equal" << endl;
+    }
+    else {
+        cout << "t2 and t6 are not equal" << endl;
+    }
+
+    Time t;
+    t.SetHours(1);
+    Time t7 = t;
+    t7.SetHours(2);
+    t7.InternalPrint();
+    {
+        t7.SetHours(12);
+        t7.InternalPrint();
+        Time t7(22, 22, 22);
+        t7.InternalPrint();
+    }
+    t7.InternalPrint();
+    Time t8(3, 3, 3);
+    t8 = t;
+    t8.SetHours(3);
+    t8.InternalPrint();
 
     return 0;
 }
